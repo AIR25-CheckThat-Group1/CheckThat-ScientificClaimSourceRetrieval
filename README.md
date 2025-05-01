@@ -1,5 +1,20 @@
 # Subtask 4b (Scientific Claim Source Retrieval)
 
+
+## Tasks
+
+[x] investigate data
+  [x] is DOI found in tweets?
+  [x] is PMC code found in tweets?
+  [x] is pubmed id found in tweets?
+  [x] is year found in tweets?
+  [x] are authors found in tweets?
+  [x] are journals found in tweets?
+  [x] who-covidence id in tweets?
+  [x] arxiv id in tweets?
+  [x] mag id in tweets?
+- 
+
 Given an implicit reference to a scientific paper, i.e., a social media post (tweet) that mentions a research publication without a URL, retrieve the mentioned paper from a pool of candidate papers.
 
 The task is a retrieval task, where the query set contains tweets mentioning papers implicitly, and the collection set contains the pool of papers mentioned by tweets.
