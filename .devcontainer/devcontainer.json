@@ -10,7 +10,17 @@
 	"hostRequirements": {
 		  "gpu": "optional" 
 	},
-	"postCreateCommand": "pip3 install -r requirements.txt"
+	"postCreateCommand": "pip3 install -r requirements.txt",
+
+	"customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",          // Python extension
+                "ms-toolsai.jupyter",        // Jupyter Notebook support
+                "ms-python.vscode-pylance",  // Pylance for Python language support
+            ]
+        }
+    }
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
