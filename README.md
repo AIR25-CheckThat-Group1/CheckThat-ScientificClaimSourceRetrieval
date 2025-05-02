@@ -13,6 +13,9 @@
   [x] who-covidence id in tweets?
   [x] arxiv id in tweets?
   [x] mag id in tweets?
+- [x] BM25 auf den ganzen corpus
+- [x] BM25 ensemble: each BM25 has its own part of the data
+- [x] ensemble of BM25s with different formulas
 - 
 
 Given an implicit reference to a scientific paper, i.e., a social media post (tweet) that mentions a research publication without a URL, retrieve the mentioned paper from a pool of candidate papers.
