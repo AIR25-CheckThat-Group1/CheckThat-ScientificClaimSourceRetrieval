@@ -25,6 +25,43 @@ Given an implicit reference to a scientific paper, i.e., a social media post (tw
 
 The task is a retrieval task, where the query set contains tweets mentioning papers implicitly, and the collection set contains the pool of papers mentioned by tweets.
 
+
+## reranking experiments
+
+[] Baselines:
+  - [x] Alibaba gte reranker
+  - [x] alibaba gte multilingual
+  - [x] tiny bert
+  - [x] mini lm l12
+  - [] mini lm l6
+  - [x] electra
+  - [x] mxbai rerank (not finetunable)
+
+[x] Finetuning all models with staatic retieval mrl
+[ ] Fintuning all models with differt embedding models
+- [] find model -> TODO next
+[ ] Fintuning parameter tuning:
+- [] learning rate
+- [] learning rate schedular
+- [] adamW learning stuff
+- [] loss check alternatives -> TODO check the effort
+- [] number of hard negatives (for current loss)
+
+Current Best solution:
+- Baseline: mxbai a
+- Finetuned: gte reranker
+
+overlall:
+- Baseline mxbai
+
+
+General TODO:
+- Generate result df
+- Makes some very basic bar plot from that result df to easily see what model is the best
+
+
+
+
 __Table of contents:__
 
 <!-- - [Evaluation Results](#evaluation-results) -->
