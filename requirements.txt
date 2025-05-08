@@ -10,3 +10,5 @@ pystemmer
 pyarrow
 datasets
 sentence-transformers
+mxbai_rerank
+accelerate>=0.26.0
