@@ -1,4 +1,4 @@
-# 📘 Traditional IR – CLEF 2025 CheckThat! Subtask 4b Experiments and Configurations
+# Traditional IR – CLEF 2025 CheckThat! Subtask 4b Experiments and Configurations
 
 **Team:** SourceSniffers  
 
@@ -6,13 +6,13 @@ This branch contains our experiments and implementation of a **Traditional Infor
 
 ---
 
-## 🧠 Method Overview
+## Method Overview
 
 We implemented a **BM25-based retrieval system** using the `rank_bm25` library. Documents are represented using a **bag-of-words** model, and scoring is based purely on lexical matching. The system applies token-level preprocessing, field-level weighting, and parameter tuning — consistent with traditional IR practices.
 
 ---
 
-## 🧹 Preprocessing Pipeline
+## Preprocessing Pipeline
 
 All documents and queries were preprocessed using:
 
@@ -24,14 +24,14 @@ All documents and queries were preprocessed using:
 
 ---
 
-## ⚙️ Experiments and Configurations
+## Experiments and Configurations
 
 We experimented with different field-weighting strategies (title vs. abstract) and BM25 parameters (`k1`, `b`) to optimize performance. Below is a summary of the configurations:
 
 ### 🏆 Config 3 – Best Performance
 - `title_weight = 3.0`, `abstract_weight = 1.0`
 - `k1 = 1.8`, `b = 0.75`
-- **MRR@5 (test set): `0.5416`**
+- **MRR@5 (competition result, not official submission): `0.5416`**
 - Tuned to reward title precision while optimizing BM25 saturation
 
 > Note: Config 3 was not the official submission for the CLEF2025 competition but represents our best internal result.
