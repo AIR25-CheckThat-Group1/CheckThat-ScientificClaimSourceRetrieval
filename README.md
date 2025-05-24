@@ -1,10 +1,6 @@
 # 📘 Traditional IR – CLEF 2025 CheckThat! Subtask 4b Experiments and Configurations
 
-**Branch:** `Traditional-IR`  
-**Task:** Scientific Claim Source Retrieval  
-**Track:** CLEF 2025 CheckThat! Lab  
 **Team:** SourceSniffers  
-**Repository:** https://github.com/AIR25-CheckThat-Group1/CheckThat-ScientificClaimSourceRetrieval/tree/Traditional-IR
 
 This branch contains our experiments and implementation of a **Traditional Information Retrieval** system for retrieving relevant scientific papers from the CORD-19 corpus based on implicit claims made in tweets.
 
