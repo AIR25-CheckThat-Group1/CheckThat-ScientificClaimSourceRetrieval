@@ -37,18 +37,17 @@ The task is a retrieval task, where the query set contains tweets mentioning pap
   - [x] electra
   - [x] mxbai rerank (not finetunable)
 
-[] Finetuning all models with staatic retieval mrl -> running ETA: 3h
-[] Fintuning all models with differt embedding models -> running ETA: 9.5h -> seems to be the beeter one
-
-[] different loss -> lambda loss testing on bigger embedding model ETA: 15h
-[] embedding model params stricter (maybe) -> ETA: 20h -> with best embedding model
+[x] Finetuning all models with staatic retieval mrl -> running ETA: 3h
+[x] Fintuning all models with differt embedding models -> running ETA: 9.5h 
+[] different loss -> lambda loss testing on bigger embedding model ETA: 15h -> RUNNING
+[] embedding model params stricter (maybe) -> ETA: 20h -> with best embedding model and ebst loss -> RUN BEFORE KLASSENTREFFEN
 
 [] potentially: smaller learning rate more epochs for best soltuin: 30h
 
-[] implemet simple essemble: in parallel
+[x] implemet simple essemble: in parallel
 [] test esemble: with baseline for effectiveness: in parallel
 
-[] retrain whole pipeline on full data with best sub solution in every step: 45h -> the end
+[x] retrain whole pipeline on full data with best sub solution in every step: 45h -> the end
 [] upload results
 
 
