@@ -1,6 +1,6 @@
-model,lr,batch_size,epochs,warmup,dev_mrr
-multi-qa-mpnet-base-cos-v1,2e-05,8,4,100,0.6547109207708779
-multi-qa-mpnet-base-cos-v1,2e-05,12,4,100,0.6677373304782298
-multi-qa-mpnet-base-cos-v1,2e-05,16,4,100,0.6692481560789911
-multi-qa-mpnet-base-cos-v1,3e-05,8,4,100,0.6387342374494408
-multi-qa-mpnet-base-cos-v1,3e-05,12,4,100,0.6529145848203665
+model;lr;batch_size;epochs;warmup;dev_mrr@5
+multi-qa-mpnet-base-cos-v1;2e-5;8;4;100;0.6547109207708779
+multi-qa-mpnet-base-cos-v1;2e-5;12;4;100;0.6677373304782298
+multi-qa-mpnet-base-cos-v1;2e-5;16;4;100;0.6692481560789911
+multi-qa-mpnet-base-cos-v1;3e-5;8;4;100;0.6387342374494408
+multi-qa-mpnet-base-cos-v1;3e-5;12;4;100;0.6529145848203665
