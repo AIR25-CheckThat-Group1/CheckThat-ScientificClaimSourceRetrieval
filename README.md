@@ -1,100 +1,62 @@
-# Subtask 4b (Scientific Claim Source Retrieval)
+# CLEF 2025 Subtask 4b (Scientific Claim Source Retrieval): Team "SourceSniffers"
+Winner of [CLEF 2025 Subtask 4b](https://checkthat.gitlab.io/clef2025/task4/)
+
+## Overview 
+
+This project tackles the Scientific Claim Source Retrieval task using three distinct approaches:
+
+- Traditional IR with BM25
+
+- Dense Bi-Encoder Retrieval (NLP Represenation Learning)
+
+- Neural Re-Ranking (used for the final submission)
+
+Our primary goal was to retrieve relevant scientific sources for a given claim with high precision. We achieved **1st place** on the competition leaderboard with our final submission.
+
+## Structure
+
+Note that only the code from the neural reranking is currently merged into the master. If you want to have a look at the other implementations, switch to the other branches.
+The branch **NLP-RL** contains our code and experiments regarding the representation learning approach. The branch **Traditional-IR** contains our code and experiments regarding the traditional approach (using rank_bm25).
+
+- **data/**: Directory containing the dataset and the predictions from our models.
+- **model/**: Directory containing all model checkpoints
+- **models/** Directory containing the best model for each experiment (based on validation dataset)
+- **basic_data_analysis.ipynb**: Notebook containing our basic analysis of the dataset to get a feeling for the data and which features might be informative.
+- **reranking_ensemble.ipynb**: Notebook containing our code and experiments looking into using an ensemble of rerankers.
+- **reranking.ipynb**: Notebook containing our code and experiments to optimize the performance of pre-trained rerankers.
+- **results.ipynb**: Reads all the data from our reranking experiments, evaluates the performance of each experiment and merges the info into one big dataframe.
+- **traditional_approach.ipynb**: Notebook containing some of our code and experiments regarding the traditional approach. This builds on top of the experiments in the Traditional-IR branch. We created a new notebook and some additional experiments since the rank_bm25 library is way to slow if you want to experiment with reranking. Therefore we switched to the bm25s library and did some additional experiments to verify that it works comparably well to our previous approach.
+
+## Setup
+This project is fully configured for use with VS Code Dev Containers (or any compatible remote development tool). 
+
+Clone the repo and open in VS Code
+
+Reopen in container when prompted
+
+The environment is defined in the included devcontainer.json:
+
+- Uses Python 3.12
+- Includes CUDA support (for GPU acceleration if available)
+- Automatically installs all required pip dependencies
+
+This should work for any editor that supports Dev Containers (Neovim, IntelliJ, etc.).
+
+Alternatively, you can do the setup manually. In this case you have install Python 3.12 and CUDA. Afterwards use the requirements.txt file to install the pip-requirements.
+
+## Final Submission Model
+- Based on alibaba/gte-reranker-modernbert-base
+- Finetuned on the official dataset.
+- LambdaLoss
+- Hard Negative Mining (num hard negatives=5, range min=3, range max=100, max score=0.95, margin=0.0)
+- MRR@10 validation
+- Learning Rate with Weight Decay
+- Reranks the top-1000 BM25 documents.
+
+→ Devset Performance MRR@5: 0.7725
+→ Testset Performance MRR@5 = 0.683 (1st place)
 
 
-## Tasks
-
-[x] investigate data
-  [x] is DOI found in tweets?
-  [x] is PMC code found in tweets?
-  [x] is pubmed id found in tweets?
-  [x] is year found in tweets?
-  [x] are authors found in tweets?
-  [x] are journals found in tweets?
-  [x] who-covidence id in tweets?
-  [x] arxiv id in tweets?
-  [x] mag id in tweets?
-- [x] BM25 auf den ganzen corpus
-- [x] BM25 ensemble: each BM25 has its own part of the data
-- [x] ensemble of BM25s with different formulas
-- [ ] ensemble of rerankers: naive approach (just sum up)
-- [ ] ensemble of rerankers: basic NN architecture
-- [x] test whether inclusion of author name etc. works better
-- [x] finetuning
-
-Given an implicit reference to a scientific paper, i.e., a social media post (tweet) that mentions a research publication without a URL, retrieve the mentioned paper from a pool of candidate papers.
-
-The task is a retrieval task, where the query set contains tweets mentioning papers implicitly, and the collection set contains the pool of papers mentioned by tweets.
-
-
-## reranking experiments
-
-[x] Baselines:
-  - [x] Alibaba gte reranker
-  - [x] alibaba gte multilingual
-  - [] tiny bert
-  - [x] mini lm l12
-  - [] mini lm l6
-  - [x] electra
-  - [x] mxbai rerank (not finetunable)
-
-[x] Finetuning all models with staatic retieval mrl -> running ETA: 3h
-[x] Fintuning all models with differt embedding models -> running ETA: 9.5h 
-[] different loss -> lambda loss testing on bigger embedding model ETA: 15h -> RUNNING
-[] embedding model params stricter (maybe) -> ETA: 20h -> with best embedding model and ebst loss -> RUN BEFORE KLASSENTREFFEN
-
-[] potentially: smaller learning rate more epochs for best soltuin: 30h
-
-[x] implemet simple essemble: in parallel
-[] test esemble: with baseline for effectiveness: in parallel
-
-[x] retrain whole pipeline on full data with best sub solution in every step: 45h -> the end
-[] upload results
-
-
-Current Best solution:
-- Baseline: mxbai a
-- Finetuned: gte reranker
-
-overlall:
-- Baseline mxbai
-
-
-General TODO:
-- Generate result df
-- Makes some very basic bar plot from that result df to easily see what model is the best
-
-
-
-
-__Table of contents:__
-
-<!-- - [Evaluation Results](#evaluation-results) -->
-- [List of Versions](#list-of-versions)
-- [Contents of the Task 1 Directory](#contents-of-the-repository)
-- [Datasets statistics](#datasets-statistics)
-- [Input Data Format](#input-data-format)
-- [Output Data Format](#output-data-format)
-- [Evaluation Metrics](#evaluation-metrics)
-- [Scorers](#scorers)
-- [Baselines](#baselines)
-- [Credits](#credits)
-
-<!-- ## Evaluation Results
-
-TBA -->
-
-## List of Versions
-- [15/01/2025] Training data released.
-
-## Contents of the Subtask4b Directory
-
-This repository contains the following files:
-
-1. **getting_started_subtask4b.ipynb** Jupyter notebook that enables participants of subtask 4b to quickly get started
-2. **subtask4b_collection_data.pkl** The collection set for the retrieval task (CORD-19 academic papers' metadata)
-3. **subtask4b_query_tweets_train.tsv** The query set (train split) for the retrieval task (tweets with implicit references to CORD-19 papers)
-4. **subtask4b_query_tweets_dev.tsv** The query set (dev split) for the retrieval task (tweets with implicit references to CORD-19 papers)
-4. **README.md** this file
 
 ## Datasets statistics
 The data for the retrieval task is made of two sets:
@@ -137,29 +99,6 @@ where the "preds" column contains an array of the top5 predicted cord_uids (in d
 ## Evaluation Metrics
 
 This task is evaluated as a retrieval task. We will use the Mean Reciprocal Rank (MRR@5) to evaluate it. 
-
-## Baselines & Scorers
-
-A "Getting started" jupyter notebook can be found in this repository. Participants can download it and use it to get started quickly. The notebook contains:
-
-1. Code to upload data, including:
-   * code to upload the collection set (CORD-19 academic papers' metadata)
-   * code to upload the query set (tweets with implicit references to CORD-19 papers)
-2. Code to run a baseline retrieval model (BM25)
-3. Code to evaluate the baseline model using the MRR score
-
-
-## Submission
-
-Please find the submission details on the Codalab page of the task: https://codalab.lisn.upsaclay.fr/competitions/22359
-
-## Related Work
-
-Information regarding the annotation guidelines can be found in the following document: https://github.com/AI-4-Sci/ReferenceDisambiguation/blob/main/annotation_protocol_examples.pdf 
-
-
-## Contact
-Please contact salim.hafid@sciencespo.fr.
 
 ## Credits
 Please find it on the task website: https://checkthat.gitlab.io/clef2025/task4/
