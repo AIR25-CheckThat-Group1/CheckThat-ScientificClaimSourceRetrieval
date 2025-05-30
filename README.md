@@ -1,4 +1,4 @@
-## Project Overview
+## Project Overview - Developed by Onbas
 
 This repository contains the implementation of various experimental approaches for the Scientific Claim Source Retrieval task. The goal is to retrieve scientific papers mentioned in social media posts (tweets) using advanced NLP and information retrieval techniques.
 
