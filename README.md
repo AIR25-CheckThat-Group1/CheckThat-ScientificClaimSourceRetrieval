@@ -14,7 +14,7 @@ The implementation includes hyperparameter tuning and evaluation using MRR@5 met
 ## Pre-trained Model Examinations
 
 ### Sentence-BERT Models
-We evaluated several pre-trained Sentence-BERT models for the Bi-Encoder architecture:
+We evaluated several pre-trained Sentence-BERT models for select our base model:
 
 1. **all-MiniLM-L6-v2**
 2. **multi-qa-MiniLM-L6-cos-v1**
