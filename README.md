@@ -1,4 +1,4 @@
-# Traditional IR – CLEF 2025 CheckThat! Subtask 4b Experiments and Configurations
+# Project Overview - Experimented by Onbas
 
 **Team:** SourceSniffers  
 
