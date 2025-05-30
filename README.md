@@ -5,11 +5,11 @@ Winner of [CLEF 2025 Subtask 4b](https://checkthat.gitlab.io/clef2025/task4/)
 
 This project tackles the Scientific Claim Source Retrieval task using three distinct approaches:
 
-- Traditional IR with BM25
+- Traditional IR with BM25 [Onbas, Haberl]
 
-- Dense Bi-Encoder Retrieval (NLP Represenation Learning)
+- Dense Bi-Encoder Retrieval (NLP Represenation Learning) [Onbas]
 
-- Neural Re-Ranking (used for the final submission)
+- Neural Re-Ranking (used for the final submission) [Haberger, Haberl]
 
 Our primary goal was to retrieve relevant scientific sources for a given claim with high precision. We achieved **1st place** on the competition leaderboard with our final submission.
 
