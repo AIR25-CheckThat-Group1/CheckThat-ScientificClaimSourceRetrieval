@@ -4,3 +4,11 @@ rank_bm25
 bm25s
 ipykernel
 matplotlib
+torch
+transformers
+pystemmer
+pyarrow
+datasets
+sentence-transformers
+mxbai_rerank
+accelerate>=0.26.0

@@ -13,11 +13,58 @@
   [x] who-covidence id in tweets?
   [x] arxiv id in tweets?
   [x] mag id in tweets?
-- 
+- [x] BM25 auf den ganzen corpus
+- [x] BM25 ensemble: each BM25 has its own part of the data
+- [x] ensemble of BM25s with different formulas
+- [ ] ensemble of rerankers: naive approach (just sum up)
+- [ ] ensemble of rerankers: basic NN architecture
+- [x] test whether inclusion of author name etc. works better
+- [x] finetuning
 
 Given an implicit reference to a scientific paper, i.e., a social media post (tweet) that mentions a research publication without a URL, retrieve the mentioned paper from a pool of candidate papers.
 
 The task is a retrieval task, where the query set contains tweets mentioning papers implicitly, and the collection set contains the pool of papers mentioned by tweets.
+
+
+## reranking experiments
+
+[x] Baselines:
+  - [x] Alibaba gte reranker
+  - [x] alibaba gte multilingual
+  - [] tiny bert
+  - [x] mini lm l12
+  - [] mini lm l6
+  - [x] electra
+  - [x] mxbai rerank (not finetunable)
+
+[x] Finetuning all models with staatic retieval mrl -> running ETA: 3h
+[x] Fintuning all models with differt embedding models -> running ETA: 9.5h 
+[] different loss -> lambda loss testing on bigger embedding model ETA: 15h -> RUNNING
+[] embedding model params stricter (maybe) -> ETA: 20h -> with best embedding model and ebst loss -> RUN BEFORE KLASSENTREFFEN
+
+[] potentially: smaller learning rate more epochs for best soltuin: 30h
+
+[x] implemet simple essemble: in parallel
+[] test esemble: with baseline for effectiveness: in parallel
+
+[x] retrain whole pipeline on full data with best sub solution in every step: 45h -> the end
+[] upload results
+
+
+Current Best solution:
+- Baseline: mxbai a
+- Finetuned: gte reranker
+
+overlall:
+- Baseline mxbai
+
+
+General TODO:
+- Generate result df
+- Makes some very basic bar plot from that result df to easily see what model is the best
+
+
+
 
 __Table of contents:__
 
