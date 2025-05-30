@@ -1,8 +1,6 @@
-# Subtask 4b (Scientific Claim Source Retrieval)
+## Project Overview
 
 This repository contains the implementation of various experimental approaches for the Scientific Claim Source Retrieval task. The goal is to retrieve scientific papers mentioned in social media posts (tweets) using advanced NLP and information retrieval techniques.
-
-## Project Overview
 
 This project implements and evaluates several approaches to improve the retrieval of scientific papers from social media posts:
 
@@ -33,7 +31,7 @@ Model Selection Criteria: Base model performance on retrieval task.
 2. **The effect of different loss functions on SBERT(not fully evaluated due to performance drops, and already pre-trained with MultipleNegativesRankingLoss)**
 3. **The effect of different data augmentation methods(text cleaning)**
 
-
+# Subtask 4b (Scientific Claim Source Retrieval)
 Given an implicit reference to a scientific paper, i.e., a social media post (tweet) that mentions a research publication without a URL, retrieve the mentioned paper from a pool of candidate papers.
 
 The task is a retrieval task, where the query set contains tweets mentioning papers implicitly, and the collection set contains the pool of papers mentioned by tweets.
