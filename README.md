@@ -4,6 +4,31 @@ Given an implicit reference to a scientific paper, i.e., a social media post (tw
 
 The task is a retrieval task, where the query set contains tweets mentioning papers implicitly, and the collection set contains the pool of papers mentioned by tweets.
 
+---
+
+##  What was done in this branch?
+
+This branch focuses on exploring **lightweight retrieval models** (e.g., `thenlper/gte-base` and `intfloat/e5-base-v2`) to investigate trade-offs between retrieval performance and inference efficiency.
+
+Key highlights:
+
+- **Experiments with Lightweight Models**:  
+  - Conducted baseline evaluations of lightweight models (without fine-tuning) to see if they perform well out-of-the-box.  
+  - Evaluated MRR@1 and MRR@5 metrics for `gte-base` and `e5-base-v2`.
+
+- **Fine-tuning on Small Datasets**:  
+  - Conducted fine-tuning experiments with `gte-base` using a small subset of the training data (500–1000 samples).  
+  - Observed significant performance drops post fine-tuning, highlighting risks of overfitting on small datasets.  
+  - Documented reasons: Server instability led to the choice of smaller training samples (server kept crashing during long fine-tuning runs).
+
+- **Efficiency Considerations**:  
+  - Noted that while `gte-base` did not outperform larger bi-encoders, it encoded queries approximately **twice as fast**.  
+  - Suggested potential for real-time or resource-constrained applications where lower latency is critical.
+
+These experiments, along with their discussions, are **not part of the official submission** but are intended as an exploration of lightweight models for future low-latency applications.
+
+---
+
 __Table of contents:__
 
 <!-- - [Evaluation Results](#evaluation-results) -->
