@@ -1,5 +1,39 @@
 # Subtask 4b (Scientific Claim Source Retrieval)
 
+This repository contains the implementation of various experimental approaches for the Scientific Claim Source Retrieval task. The goal is to retrieve scientific papers mentioned in social media posts (tweets) using advanced NLP and information retrieval techniques.
+
+## Project Overview
+
+This project implements and evaluates several approaches to improve the retrieval of scientific papers from social media posts:
+
+1. **Bi-Encoder Architecture**: A dual-encoder model using Sentence-BERT for semantic matching
+2. **Query Expansion**: Techniques to enhance tweet queries with relevant scientific terms
+3. **Multi-Hop Fusion**: Multi-step retrieval process for complex relationships
+4. **Hybrid Retrieval**: Combination of Multi-Hop Fusion and Query Expansion
+
+The implementation includes hyperparameter tuning and evaluation using MRR@5 metric.
+
+## Pre-trained Model Examinations
+
+### Sentence-BERT Models
+We evaluated several pre-trained Sentence-BERT models for the Bi-Encoder architecture:
+
+1. **all-MiniLM-L6-v2**
+2. **multi-qa-MiniLM-L6-cos-v1**
+3. **multi-qa-MiniLM-L6-dot-v1**
+4. **allenai/specter**
+5. **msmarco-distilbert-base-tas-b**
+6. **multi-qa-mpnet-base-cos-v1**
+
+Model Selection Criteria: Base model performance on retrieval task.
+
+## Hyperparameter Tuning
+
+1. **The effect of different learning rates and batch sizes**
+2. **The effect of different loss functions on SBERT(not fully evaluated due to performance drops, and already pre-trained with MultipleNegativesRankingLoss)**
+3. **The effect of different data augmentation methods(text cleaning)**
+
+
 Given an implicit reference to a scientific paper, i.e., a social media post (tweet) that mentions a research publication without a URL, retrieve the mentioned paper from a pool of candidate papers.
 
 The task is a retrieval task, where the query set contains tweets mentioning papers implicitly, and the collection set contains the pool of papers mentioned by tweets.
@@ -86,6 +120,43 @@ A "Getting started" jupyter notebook can be found in this repository. Participan
 2. Code to run a baseline retrieval model (BM25)
 3. Code to evaluate the baseline model using the MRR score
 
+## Experimental Implementations
+
+This repository contains several experimental approaches to improve the scientific claim source retrieval task. The experiments are implemented in Jupyter notebooks located in the `experiments/` directory:
+
+### 1. Bi-Encoder Approach (`NLP_Biencoder.ipynb`)
+- Implements a dual-encoder architecture using Sentence-BERT
+- Fine-tunes the model on the training data to learn tweet-paper relevance
+- Uses cosine similarity for retrieval
+
+### 2. Query Expansion (`NLP_QueryExpansion.ipynb`)
+- Enhances tweet queries by expanding them with relevant terms
+- Uses techniques to identify and add key scientific terms
+- Improves retrieval by capturing implicit scientific concepts
+
+### 3. Hybrid Approach (`NLP_Hybrid.ipynb`)
+- Combines multiple retrieval methods for improved results
+- Integrates lexical and semantic search approaches
+- Uses weighted combination of different retrieval scores
+
+### 4. Multi-Hop Fusion (`NLP_MultiHopFusion.ipynb`)
+- Implements a multi-step retrieval process
+- Uses intermediate results to refine the final retrieval
+- Aims to capture complex relationships between tweets and papers
+
+### Hyperparameter Tuning
+Three notebooks are dedicated to hyperparameter optimization:
+- `NLP_HyperparameterTuning_1.ipynb`
+- `NLP_HyperparameterTuning_2.ipynb`
+- `NLP_HyperparameterTuning_3.ipynb`
+
+These experiments explore different parameter configurations to optimize model performance.
+
+### Results
+The experimental results are stored in:
+- `predictions.tsv`: Initial predictions
+- `predictions_fromfinetunedmodel.tsv`: Predictions from the fine-tuned model
+- `hyperparam_results_1.csv`: Results from hyperparameter tuning
 
 ## Submission
 
